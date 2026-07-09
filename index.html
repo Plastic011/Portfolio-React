@@ -60,11 +60,9 @@
   .section-head h2 { font-size: 32px; margin: 10px 0 0; }
   .section-head span { font-size: 12px; font-weight: 700; letter-spacing: .06em; }
 
-  /* reveal-on-scroll */
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1); }
   .reveal.in { opacity: 1; transform: translateY(0); }
 
-  /* navbar */
   nav {
     position: sticky; top: 0; z-index: 50;
     background: color-mix(in srgb, var(--bg) 80%, transparent);
@@ -94,7 +92,6 @@
     .hire-desktop { display: none; }
   }
 
-  /* boss */
   .boss { position: relative; overflow: hidden; padding: 90px 0; }
   .blob { position: absolute; border-radius: 50%; filter: blur(70px); opacity: .18; }
   .blob1 { width: 380px; height: 380px; top: -140px; left: -80px; background: var(--accent-1); animation: drift1 16s ease-in-out infinite; }
@@ -187,7 +184,6 @@
   @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
   @media (prefers-reduced-motion: reduce) { .code-card { animation: none; } }
 
-  /* about */
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
   @media (max-width: 820px) { .about-grid { grid-template-columns: 1fr; } }
   .stat-grid { display: grid; grid-template-columns: 1fr 1fr; }
@@ -198,7 +194,6 @@
   .stat-value { font-size: 20px; font-weight: 700; margin: 0; }
   .stat-label { font-size: 12px; margin: 2px 0 0; }
 
-  /* skills */
   .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
   @media (max-width: 820px) { .skills-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 560px) { .skills-grid { grid-template-columns: 1fr; } }
@@ -234,7 +229,6 @@
   @keyframes shimmer { 0% { transform: translateX(-100%); } 55%, 100% { transform: translateX(100%); } }
   @media (prefers-reduced-motion: reduce) { .bar-fill::after { animation: none; } }
 
-  /* projects */
   .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 32px; }
   @media (max-width: 820px) { .proj-grid { grid-template-columns: 1fr; } }
   .proj-card { overflow: hidden; transition: transform .25s ease; }
@@ -248,7 +242,6 @@
   .pdot { height: 8px; border-radius: 999px; background: var(--border); width: 8px; transition: all .3s; }
   .pdot.active { width: 24px; background: linear-gradient(90deg, var(--accent-1), var(--accent-2)); }
 
-  /* timeline */
   .timeline { position: relative; padding-left: 32px; max-width: 640px; margin: 0 auto; }
   .timeline::before { content: ""; position: absolute; left: 11px; top: 8px; bottom: 8px; width: 1px; background: var(--border); }
   .t-item { position: relative; margin-bottom: 32px; }
@@ -258,7 +251,6 @@
   .t-period { font-size: 12px; margin: 0 0 4px; }
   .t-title { margin: 0 0 4px; font-size: 15px; font-weight: 700; }
 
-  /* contact */
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
   @media (max-width: 820px) { .contact-grid { grid-template-columns: 1fr; } }
 
@@ -748,7 +740,6 @@
 </footer>
 
 <script>
-  // theme toggle
   const themeBtn = document.getElementById('themeToggle');
   function paintThemeIcon() {
     themeBtn.textContent = document.documentElement.classList.contains('light') ? '☀️' : '🌙';
@@ -762,13 +753,11 @@
     paintThemeIcon();
   });
 
-  // mobile menu
   const hamburger = document.getElementById('hamburgerBtn');
   const mobileMenu = document.getElementById('mobileMenu');
   hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
 
-  // scroll progress bar
   const progressBar = document.getElementById('progressBar');
   window.addEventListener('scroll', () => {
     const h = document.documentElement;
@@ -776,7 +765,6 @@
     progressBar.style.width = scrolled + '%';
   });
 
-  // rotating role text
   const roles = ["React Developer", "Frontend Engineer", "UI Craftsman", "Open to Work"];
   const roleLine = document.getElementById('roleLine');
   let roleIndex = 0;
@@ -798,7 +786,6 @@
     setTimeout(() => leaving.remove(), 500);
   }, 2200);
 
-  // floating particles — small glowing dots drifting upward through the 
   const particleContainer = document.getElementById('bossParticles');
   const particleCount = 22;
   for (let i = 0; i < particleCount; i++) {
@@ -815,7 +802,6 @@
     particleContainer.appendChild(p);
   }
 
-  // code-card typewriter effect
   const codeLines = [
     [{ t: 'const', c: 'code-kw' }, { t: ' developer = {', c: '' }],
     [{ t: '  name: ', c: '' }, { t: "'Shantanu'", c: 'code-str' }, { t: ',', c: 'code-punc' }],
@@ -875,7 +861,6 @@
   }, { threshold: 0.3 });
   codeCardIo.observe(document.querySelector('.code-card'));
 
-  // scroll reveal + skill bar fill
   const revealEls = document.querySelectorAll('.reveal');
   const barEls = document.querySelectorAll('.bar-fill');
   const io = new IntersectionObserver((entries) => {
@@ -923,7 +908,7 @@
   }, { threshold: 0.5 });
   timelineDots.forEach(el => dotIo.observe(el));
 
-  // contact form (client-side only — wire to a real endpoint later)
+
   const form = document.getElementById('contactForm');
   const sendBtn = document.getElementById('sendBtn');
   const sendBtnLabel = document.getElementById('sendBtnLabel');
@@ -964,14 +949,12 @@
     }, 900);
   });
 
-  // clear a field's invalid state as soon as the user starts fixing it
   ['cName', 'cEmail', 'cMessage'].forEach((id) => {
     document.getElementById(id).addEventListener('input', (e) => {
       e.target.closest('.field').classList.remove('invalid');
     });
   });
 
-  // project dots (static demo — click to switch active state)
   document.querySelectorAll('.pdot').forEach((dot, i) => {
     dot.addEventListener('click', () => {
       document.querySelectorAll('.pdot').forEach(d => d.classList.remove('active'));
