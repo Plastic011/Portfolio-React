@@ -74,11 +74,9 @@
   .section-head h2 { font-size: 32px; margin: 10px 0 0; }
   .section-head span { font-size: 12px; font-weight: 700; letter-spacing: .06em; }
 
-  /* reveal-on-scroll */
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1); }
   .reveal.in { opacity: 1; transform: translateY(0); }
 
-  /* navbar */
   nav {
     position: sticky; top: 0; z-index: 50;
     background: color-mix(in srgb, var(--bg) 80%, transparent);
@@ -108,8 +106,7 @@
     .hire-desktop { display: none; }
   }
 
-  /* hero */
-  .hero { position: relative; overflow: hidden; padding: 90px 0; }
+  .boss { position: relative; overflow: hidden; padding: 90px 0; }
   .blob { position: absolute; border-radius: 50%; filter: blur(70px); opacity: .18; }
   .blob1 { width: 380px; height: 380px; top: -140px; left: -80px; background: var(--accent-1); animation: drift1 16s ease-in-out infinite; }
   .blob2 { width: 320px; height: 320px; top: 160px; right: -60px; background: var(--accent-2); animation: drift2 19s ease-in-out infinite; animation-delay: 1s; }
@@ -128,8 +125,8 @@
     0%, 100% { transform: translate(0, 0) scale(.95); opacity: .14; }
     50% { transform: translate(-25px, -35px) scale(1.2); opacity: .24; }
   }
-  .hero-particles { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
-  .hero-particle {
+  .boss-particles { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+  .boss-particle {
     position: absolute; bottom: -10px; width: 4px; height: 4px; border-radius: 50%;
     background: var(--accent-2); opacity: 0; animation: floatUp linear infinite;
     box-shadow: 0 0 6px 1px color-mix(in srgb, var(--accent-2) 70%, transparent);
@@ -141,11 +138,11 @@
     100% { transform: translateY(-420px) translateX(var(--drift, 20px)); opacity: 0; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .blob1, .blob2, .blob3, .hero-particle { animation: none; }
+    .blob1, .blob2, .blob3, .boss-particle { animation: none; }
   }
-  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; position: relative; }
-  @media (max-width: 820px) { .hero-grid { grid-template-columns: 1fr; } }
-  .hero h1 { font-size: 44px; margin: 0 0 4px; line-height: 1.15; }
+  .boss-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; position: relative; }
+  @media (max-width: 820px) { .boss-grid { grid-template-columns: 1fr; } }
+  .boss h1 { font-size: 44px; margin: 0 0 4px; line-height: 1.15; }
   .role-line { font-size: 26px; font-weight: 600; margin-bottom: 16px; height: 1.4em; overflow: hidden; position: relative; }
   .role-word { position: absolute; left: 0; top: 0; opacity: 0; transform: translateY(100%); transition: transform .45s cubic-bezier(.22,1,.36,1), opacity .45s; }
   .role-word.active { opacity: 1; transform: translateY(0); }
@@ -201,7 +198,6 @@
   @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
   @media (prefers-reduced-motion: reduce) { .code-card { animation: none; } }
 
-  /* about */
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
   @media (max-width: 820px) { .about-grid { grid-template-columns: 1fr; } }
   .stat-grid { display: grid; grid-template-columns: 1fr 1fr; }
@@ -212,7 +208,6 @@
   .stat-value { font-size: 20px; font-weight: 700; margin: 0; }
   .stat-label { font-size: 12px; margin: 2px 0 0; }
 
-  /* skills */
   .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
   @media (max-width: 820px) { .skills-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 560px) { .skills-grid { grid-template-columns: 1fr; } }
@@ -248,7 +243,6 @@
   @keyframes shimmer { 0% { transform: translateX(-100%); } 55%, 100% { transform: translateX(100%); } }
   @media (prefers-reduced-motion: reduce) { .bar-fill::after { animation: none; } }
 
-  /* projects */
   .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 32px; }
   @media (max-width: 820px) { .proj-grid { grid-template-columns: 1fr; } }
   .proj-card { overflow: hidden; transition: transform .25s ease; }
@@ -262,7 +256,6 @@
   .pdot { height: 8px; border-radius: 999px; background: var(--border); width: 8px; transition: all .3s; }
   .pdot.active { width: 24px; background: linear-gradient(90deg, var(--accent-1), var(--accent-2)); }
 
-  /* timeline */
   .timeline { position: relative; padding-left: 32px; max-width: 640px; margin: 0 auto; }
   .timeline::before { content: ""; position: absolute; left: 11px; top: 8px; bottom: 8px; width: 1px; background: var(--border); }
   .t-item { position: relative; margin-bottom: 32px; }
@@ -298,7 +291,6 @@
   .edu-year { font-size: 12px; font-weight: 600; }
   .edu-score { font-size: 14px; font-weight: 800; }
 
-  /* contact */
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
   @media (max-width: 820px) { .contact-grid { grid-template-columns: 1fr; } }
 
@@ -511,12 +503,12 @@
   </div>
 </nav>
 
-<section class="hero" id="home">
+<section class="boss" id="home">
   <div class="blob blob1"></div>
   <div class="blob blob2"></div>
   <div class="blob blob3"></div>
-  <div class="hero-particles" id="heroParticles"></div>
-  <div class="wrap hero-grid">
+  <div class="boss-particles" id="bossParticles"></div>
+  <div class="wrap boss-grid">
     <div>
       <span class="badge gradient-text">I'M A REACT DEVELOPER</span>
       <h1>Hi, I'm <span class="gradient-text">Shantanu</span></h1>
@@ -955,12 +947,11 @@
     setTimeout(() => leaving.remove(), 500);
   }, 2200);
 
-  // hero floating particles — small glowing dots drifting upward through the hero
-  const particleContainer = document.getElementById('heroParticles');
+  const particleContainer = document.getElementById('bossParticles');
   const particleCount = 22;
   for (let i = 0; i < particleCount; i++) {
     const p = document.createElement('span');
-    p.className = 'hero-particle';
+    p.className = 'boss-particle';
     const left = Math.random() * 100;
     const duration = 8 + Math.random() * 10;
     const delay = Math.random() * 12;
